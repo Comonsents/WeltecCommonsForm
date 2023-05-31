@@ -5,6 +5,12 @@ namespace WeltecCommonsForm
         public FormMain()
         {
             InitializeComponent();
+
+        }
+
+        private void CurrentBorrowed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

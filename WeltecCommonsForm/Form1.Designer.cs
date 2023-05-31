@@ -67,6 +67,7 @@
             CurrentBorrowed.Name = "CurrentBorrowed";
             CurrentBorrowed.Size = new Size(437, 454);
             CurrentBorrowed.TabIndex = 0;
+            CurrentBorrowed.SelectedIndexChanged += CurrentBorrowed_SelectedIndexChanged;
             // 
             // ViewUserDetails
             // 
