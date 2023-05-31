@@ -12,5 +12,11 @@ namespace WeltecCommonsForm
         {
 
         }
+
+        private void ViewCatalogue_Click(object sender, EventArgs e)
+        {
+            CatalogueView view = new CatalogueView();
+            view.Show();
+        }
     }
 }

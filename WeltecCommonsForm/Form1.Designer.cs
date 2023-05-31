@@ -42,18 +42,18 @@
             IssueItem = new Button();
             ViewCatalogue = new Button();
             ItemInfoGroup = new GroupBox();
+            ItemType = new Label();
+            ItemDesc = new Label();
+            ItemIsbn = new Label();
+            ItemAuthor = new Label();
+            ItemTitle = new Label();
+            ItemTypeLabel = new Label();
             ItemDescLabel = new Label();
             ItemISBNLabel = new Label();
             ItemAuthorLabel = new Label();
             ItemTitleLabel = new Label();
             ViewDetails = new Button();
             pictureBox1 = new PictureBox();
-            ItemTypeLabel = new Label();
-            ItemType = new Label();
-            ItemDesc = new Label();
-            ItemIsbn = new Label();
-            ItemAuthor = new Label();
-            ItemTitle = new Label();
             BorrowersInfoGroup.SuspendLayout();
             ItemInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -180,6 +180,7 @@
             ViewCatalogue.TabIndex = 11;
             ViewCatalogue.Text = "View Catalogue";
             ViewCatalogue.UseVisualStyleBackColor = true;
+            ViewCatalogue.Click += ViewCatalogue_Click;
             // 
             // ItemInfoGroup
             // 
@@ -199,6 +200,60 @@
             ItemInfoGroup.TabIndex = 12;
             ItemInfoGroup.TabStop = false;
             ItemInfoGroup.Text = "Item Info";
+            // 
+            // ItemType
+            // 
+            ItemType.AutoSize = true;
+            ItemType.Location = new Point(81, 114);
+            ItemType.Name = "ItemType";
+            ItemType.Size = new Size(34, 15);
+            ItemType.TabIndex = 9;
+            ItemType.Text = "Book";
+            // 
+            // ItemDesc
+            // 
+            ItemDesc.AutoSize = true;
+            ItemDesc.Location = new Point(81, 90);
+            ItemDesc.Name = "ItemDesc";
+            ItemDesc.Size = new Size(30, 15);
+            ItemDesc.TabIndex = 8;
+            ItemDesc.Text = "Blah";
+            // 
+            // ItemIsbn
+            // 
+            ItemIsbn.AutoSize = true;
+            ItemIsbn.Location = new Point(81, 66);
+            ItemIsbn.Name = "ItemIsbn";
+            ItemIsbn.Size = new Size(71, 15);
+            ItemIsbn.TabIndex = 7;
+            ItemIsbn.Text = "AHDH46546";
+            // 
+            // ItemAuthor
+            // 
+            ItemAuthor.AutoSize = true;
+            ItemAuthor.Location = new Point(81, 42);
+            ItemAuthor.Name = "ItemAuthor";
+            ItemAuthor.Size = new Size(65, 15);
+            ItemAuthor.TabIndex = 6;
+            ItemAuthor.Text = "Bob Bobby";
+            // 
+            // ItemTitle
+            // 
+            ItemTitle.AutoSize = true;
+            ItemTitle.Location = new Point(81, 18);
+            ItemTitle.Name = "ItemTitle";
+            ItemTitle.Size = new Size(38, 15);
+            ItemTitle.TabIndex = 5;
+            ItemTitle.Text = "Green";
+            // 
+            // ItemTypeLabel
+            // 
+            ItemTypeLabel.AutoSize = true;
+            ItemTypeLabel.Location = new Point(41, 114);
+            ItemTypeLabel.Name = "ItemTypeLabel";
+            ItemTypeLabel.Size = new Size(34, 15);
+            ItemTypeLabel.TabIndex = 4;
+            ItemTypeLabel.Text = "Type:";
             // 
             // ItemDescLabel
             // 
@@ -252,60 +307,6 @@
             pictureBox1.Size = new Size(130, 120);
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
-            // 
-            // ItemTypeLabel
-            // 
-            ItemTypeLabel.AutoSize = true;
-            ItemTypeLabel.Location = new Point(41, 114);
-            ItemTypeLabel.Name = "ItemTypeLabel";
-            ItemTypeLabel.Size = new Size(34, 15);
-            ItemTypeLabel.TabIndex = 4;
-            ItemTypeLabel.Text = "Type:";
-            // 
-            // ItemType
-            // 
-            ItemType.AutoSize = true;
-            ItemType.Location = new Point(81, 114);
-            ItemType.Name = "ItemType";
-            ItemType.Size = new Size(34, 15);
-            ItemType.TabIndex = 9;
-            ItemType.Text = "Book";
-            // 
-            // ItemDesc
-            // 
-            ItemDesc.AutoSize = true;
-            ItemDesc.Location = new Point(81, 90);
-            ItemDesc.Name = "ItemDesc";
-            ItemDesc.Size = new Size(30, 15);
-            ItemDesc.TabIndex = 8;
-            ItemDesc.Text = "Blah";
-            // 
-            // ItemIsbn
-            // 
-            ItemIsbn.AutoSize = true;
-            ItemIsbn.Location = new Point(81, 66);
-            ItemIsbn.Name = "ItemIsbn";
-            ItemIsbn.Size = new Size(71, 15);
-            ItemIsbn.TabIndex = 7;
-            ItemIsbn.Text = "AHDH46546";
-            // 
-            // ItemAuthor
-            // 
-            ItemAuthor.AutoSize = true;
-            ItemAuthor.Location = new Point(81, 42);
-            ItemAuthor.Name = "ItemAuthor";
-            ItemAuthor.Size = new Size(65, 15);
-            ItemAuthor.TabIndex = 6;
-            ItemAuthor.Text = "Bob Bobby";
-            // 
-            // ItemTitle
-            // 
-            ItemTitle.AutoSize = true;
-            ItemTitle.Location = new Point(81, 18);
-            ItemTitle.Name = "ItemTitle";
-            ItemTitle.Size = new Size(38, 15);
-            ItemTitle.TabIndex = 5;
-            ItemTitle.Text = "Green";
             // 
             // FormMain
             // 
