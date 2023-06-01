@@ -1,20 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WeltecCommonsForm
+﻿namespace WeltecCommonsForm
 {
     public partial class CatalogueView : Form
     {
+        SortedDictionary<string, Catalogue> catalogue = new SortedDictionary<string, Catalogue>();
         public CatalogueView()
         {
             InitializeComponent();
+            if (GlobalData.itemCatalogue != null)
+            {
+                catalogue = GlobalData.itemCatalogue;
+            }
+
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
+            itemCatalogue.Sorted = true;
+            itemCatalogue.DataSource = new BindingSource(catalogue, null);
+            itemCatalogue.ValueMember = "Key";
+        }
+
+        private void CurrentBorrowed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

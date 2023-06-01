@@ -171,6 +171,7 @@
             IssueItem.TabIndex = 10;
             IssueItem.Text = "Issue Item";
             IssueItem.UseVisualStyleBackColor = true;
+            IssueItem.Click += IssueItem_Click;
             // 
             // ViewCatalogue
             // 

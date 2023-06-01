@@ -32,7 +32,7 @@
             AddItem = new Button();
             SearchResults = new Label();
             Search = new TextBox();
-            CurrentBorrowed = new ListBox();
+            itemCatalogue = new ListBox();
             UpdateItem = new Button();
             SuspendLayout();
             // 
@@ -70,14 +70,15 @@
             Search.Size = new Size(100, 23);
             Search.TabIndex = 13;
             // 
-            // CurrentBorrowed
+            // itemCatalogue
             // 
-            CurrentBorrowed.FormattingEnabled = true;
-            CurrentBorrowed.ItemHeight = 15;
-            CurrentBorrowed.Location = new Point(12, 39);
-            CurrentBorrowed.Name = "CurrentBorrowed";
-            CurrentBorrowed.Size = new Size(589, 454);
-            CurrentBorrowed.TabIndex = 12;
+            itemCatalogue.FormattingEnabled = true;
+            itemCatalogue.ItemHeight = 15;
+            itemCatalogue.Location = new Point(12, 39);
+            itemCatalogue.Name = "itemCatalogue";
+            itemCatalogue.Size = new Size(589, 454);
+            itemCatalogue.TabIndex = 12;
+            itemCatalogue.SelectedIndexChanged += CurrentBorrowed_SelectedIndexChanged;
             // 
             // UpdateItem
             // 
@@ -98,7 +99,7 @@
             Controls.Add(AddItem);
             Controls.Add(SearchResults);
             Controls.Add(Search);
-            Controls.Add(CurrentBorrowed);
+            Controls.Add(itemCatalogue);
             Name = "CatalogueView";
             Text = "CatalogueView";
             ResumeLayout(false);
@@ -111,7 +112,7 @@
         private Button AddItem;
         private Label SearchResults;
         private TextBox Search;
-        private ListBox CurrentBorrowed;
+        private ListBox itemCatalogue;
         private Button UpdateItem;
     }
 }
