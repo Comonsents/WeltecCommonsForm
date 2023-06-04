@@ -9,6 +9,7 @@ namespace WeltecCommonsForm
 
         
         public static string selectedItem = null;
+        public static string selectedUser = null;
 
         [STAThread]
         static void Main()

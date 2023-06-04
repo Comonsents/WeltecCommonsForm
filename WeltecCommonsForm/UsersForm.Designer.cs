@@ -30,6 +30,7 @@
         {
             UsersListBox = new ListBox();
             UserListSearch = new TextBox();
+            SelectUserFromList = new Button();
             SuspendLayout();
             // 
             // UsersListBox
@@ -49,11 +50,22 @@
             UserListSearch.Size = new Size(240, 23);
             UserListSearch.TabIndex = 1;
             // 
+            // SelectUserFromList
+            // 
+            SelectUserFromList.Location = new Point(12, 306);
+            SelectUserFromList.Name = "SelectUserFromList";
+            SelectUserFromList.Size = new Size(240, 40);
+            SelectUserFromList.TabIndex = 2;
+            SelectUserFromList.Text = "Select User";
+            SelectUserFromList.UseVisualStyleBackColor = true;
+            SelectUserFromList.Click += SelectUserFromList_Click;
+            // 
             // UsersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(261, 314);
+            ClientSize = new Size(261, 358);
+            Controls.Add(SelectUserFromList);
             Controls.Add(UserListSearch);
             Controls.Add(UsersListBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -67,5 +79,6 @@
 
         private ListBox UsersListBox;
         private TextBox UserListSearch;
+        private Button SelectUserFromList;
     }
 }

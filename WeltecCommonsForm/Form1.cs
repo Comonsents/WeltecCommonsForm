@@ -5,7 +5,7 @@ namespace WeltecCommonsForm
 
         SortedDictionary<string, Catalogue> borrowedItems = new SortedDictionary<string, Catalogue>();
         static string[] headers = new string[6];
-        Catalogue catalogue = new Catalogue();
+        Borrowed Borrowed = new Borrowed();
         //List<Person> users = new();
 
 
@@ -88,6 +88,8 @@ namespace WeltecCommonsForm
                 if (!borrowedItems.ContainsKey(Program.selectedItem))
                 {
                     borrowedItems.Add(Program.selectedItem, GlobalData.itemCatalogue[Program.selectedItem]);
+                    Borrowed
+
                 }
                 Program.selectedItem = null;
                 RefreshForm();
@@ -97,7 +99,28 @@ namespace WeltecCommonsForm
         private void ViewUsersList_Click(object sender, EventArgs e)
         {
             UsersForm view = new UsersForm();
+            view.FormClosed += new FormClosedEventHandler(UpdateSelectedUser);
             view.ShowDialog();
+        }
+
+        private void UpdateSelectedUser(object? sender, FormClosedEventArgs e)
+        {
+            if (Program.selectedUser != null)
+            {
+                Person foundUser = GlobalData.users.FirstOrDefault(users => users.FName == Program.selectedUser);
+                if (foundUser != null)
+                {
+                    PersonFName.Text = foundUser.FName;
+                    PersonLName.Text = foundUser.LName;
+                    PersonId.Text = foundUser.ID.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error finding: " + Program.selectedUser, "Search Error");
+                }
+                Program.selectedUser = null;
+            }
         }
     }
 }

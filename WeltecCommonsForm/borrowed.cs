@@ -1,26 +1,20 @@
 ﻿namespace WeltecCommonsForm
 {
-    internal class borrowed : Catalogue
+    internal class Borrowed : Catalogue
     {
         Person person;
-        Catalogue borrowedItem;
-        DateOnly? dateBorrowed;
+        SortedDictionary<Catalogue, DateOnly> borrowedItem;
 
         public Person Person { get => person; set => person = value; }
-        internal Catalogue BorrowedItem { get => borrowedItem; set => borrowedItem = value; }
-        public DateOnly? DateBorrowed { get => dateBorrowed; set => dateBorrowed = value; }
+        internal SortedDictionary<Catalogue, DateOnly> BorrowedItem { get => borrowedItem; set => borrowedItem = value; }
 
-        public borrowed(Person person, Catalogue borrowedItem, DateOnly? dateBorrowed)
+        public Borrowed(Person person, SortedDictionary<Catalogue, DateOnly> borrowedItem)
         {
             Person = person;
             BorrowedItem = borrowedItem;
-            DateBorrowed = dateBorrowed;
         }
 
-        public DateOnly GetDueDate()
-        {
-            DateOnly date = DateBorrowed.Value.AddDays(28);
-            return date;
-        }
+        public Borrowed() { }
+
     }
 }
