@@ -6,6 +6,7 @@ namespace WeltecCommonsForm
         SortedDictionary<string, Catalogue> borrowedItems = new SortedDictionary<string, Catalogue>();
         static string[] headers = new string[6];
         Catalogue catalogue = new Catalogue();
+        //List<Person> users = new();
 
 
         public FormMain()
@@ -13,6 +14,12 @@ namespace WeltecCommonsForm
 
 
             InitializeComponent();
+            //testUsers
+            GlobalData.users.Add(new Student("Ben", "Hodgson", 123456, DateTime.Now, 0));
+            GlobalData.users.Add(new Student("Lea", "Hung", 987654, DateTime.Now, 0));
+            GlobalData.users.Add(new Student("Bob", "Bobby", 112233, DateTime.Now, 0));
+            GlobalData.users.Add(new Staff("Lecturer", "Person", 999999, DateTime.Now, 0, "Mr"));
+
             var path = @"../../../datafiles/records.csv";
             string[] lines = File.ReadAllLines(path);
 
@@ -78,15 +85,19 @@ namespace WeltecCommonsForm
         {
             if (Program.selectedItem != null)
             {
-                    if (!borrowedItems.ContainsKey(Program.selectedItem))
-                    {
-                        borrowedItems.Add(Program.selectedItem, GlobalData.itemCatalogue[Program.selectedItem]);
-                    }
+                if (!borrowedItems.ContainsKey(Program.selectedItem))
+                {
+                    borrowedItems.Add(Program.selectedItem, GlobalData.itemCatalogue[Program.selectedItem]);
+                }
                 Program.selectedItem = null;
                 RefreshForm();
             }
         }
 
-
+        private void ViewUsersList_Click(object sender, EventArgs e)
+        {
+            UsersForm view = new UsersForm();
+            view.ShowDialog();
+        }
     }
 }

@@ -54,6 +54,7 @@
             ItemTitleLabel = new Label();
             ViewDetails = new Button();
             pictureBox1 = new PictureBox();
+            ViewUsersList = new Button();
             BorrowersInfoGroup.SuspendLayout();
             ItemInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -195,7 +196,7 @@
             ItemInfoGroup.Controls.Add(ItemISBNLabel);
             ItemInfoGroup.Controls.Add(ItemAuthorLabel);
             ItemInfoGroup.Controls.Add(ItemTitleLabel);
-            ItemInfoGroup.Location = new Point(456, 146);
+            ItemInfoGroup.Location = new Point(456, 196);
             ItemInfoGroup.Name = "ItemInfoGroup";
             ItemInfoGroup.Size = new Size(297, 146);
             ItemInfoGroup.TabIndex = 12;
@@ -294,7 +295,7 @@
             // 
             // ViewDetails
             // 
-            ViewDetails.Location = new Point(455, 298);
+            ViewDetails.Location = new Point(455, 348);
             ViewDetails.Name = "ViewDetails";
             ViewDetails.Size = new Size(161, 37);
             ViewDetails.TabIndex = 13;
@@ -309,11 +310,22 @@
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
+            // ViewUsersList
+            // 
+            ViewUsersList.Location = new Point(456, 146);
+            ViewUsersList.Name = "ViewUsersList";
+            ViewUsersList.Size = new Size(161, 37);
+            ViewUsersList.TabIndex = 15;
+            ViewUsersList.Text = "Change User";
+            ViewUsersList.UseVisualStyleBackColor = true;
+            ViewUsersList.Click += ViewUsersList_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(765, 546);
+            Controls.Add(ViewUsersList);
             Controls.Add(pictureBox1);
             Controls.Add(ViewDetails);
             Controls.Add(ItemInfoGroup);
@@ -363,5 +375,6 @@
         private Label ItemAuthor;
         private Label ItemTitle;
         private Label ItemTypeLabel;
+        private Button ViewUsersList;
     }
 }
