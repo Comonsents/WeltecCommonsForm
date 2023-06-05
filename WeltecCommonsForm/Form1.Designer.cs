@@ -55,6 +55,8 @@
             ViewDetails = new Button();
             pictureBox1 = new PictureBox();
             ViewUsersList = new Button();
+            ItemDueDateLabel = new Label();
+            ItemDueDate = new Label();
             BorrowersInfoGroup.SuspendLayout();
             ItemInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -72,6 +74,7 @@
             // 
             // ViewUserDetails
             // 
+            ViewUserDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ViewUserDetails.Location = new Point(456, 103);
             ViewUserDetails.Name = "ViewUserDetails";
             ViewUserDetails.Size = new Size(161, 37);
@@ -166,6 +169,7 @@
             // 
             // IssueItem
             // 
+            IssueItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             IssueItem.Location = new Point(12, 501);
             IssueItem.Name = "IssueItem";
             IssueItem.Size = new Size(75, 35);
@@ -176,6 +180,7 @@
             // 
             // ViewCatalogue
             // 
+            ViewCatalogue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ViewCatalogue.Location = new Point(93, 501);
             ViewCatalogue.Name = "ViewCatalogue";
             ViewCatalogue.Size = new Size(114, 35);
@@ -186,6 +191,8 @@
             // 
             // ItemInfoGroup
             // 
+            ItemInfoGroup.Controls.Add(ItemDueDate);
+            ItemInfoGroup.Controls.Add(ItemDueDateLabel);
             ItemInfoGroup.Controls.Add(ItemType);
             ItemInfoGroup.Controls.Add(ItemDesc);
             ItemInfoGroup.Controls.Add(ItemIsbn);
@@ -198,7 +205,7 @@
             ItemInfoGroup.Controls.Add(ItemTitleLabel);
             ItemInfoGroup.Location = new Point(456, 196);
             ItemInfoGroup.Name = "ItemInfoGroup";
-            ItemInfoGroup.Size = new Size(297, 146);
+            ItemInfoGroup.Size = new Size(297, 180);
             ItemInfoGroup.TabIndex = 12;
             ItemInfoGroup.TabStop = false;
             ItemInfoGroup.Text = "Item Info";
@@ -206,7 +213,7 @@
             // ItemType
             // 
             ItemType.AutoSize = true;
-            ItemType.Location = new Point(81, 114);
+            ItemType.Location = new Point(101, 120);
             ItemType.Name = "ItemType";
             ItemType.Size = new Size(34, 15);
             ItemType.TabIndex = 9;
@@ -215,7 +222,7 @@
             // ItemDesc
             // 
             ItemDesc.AutoSize = true;
-            ItemDesc.Location = new Point(81, 90);
+            ItemDesc.Location = new Point(101, 96);
             ItemDesc.Name = "ItemDesc";
             ItemDesc.Size = new Size(30, 15);
             ItemDesc.TabIndex = 8;
@@ -224,7 +231,7 @@
             // ItemIsbn
             // 
             ItemIsbn.AutoSize = true;
-            ItemIsbn.Location = new Point(81, 66);
+            ItemIsbn.Location = new Point(101, 72);
             ItemIsbn.Name = "ItemIsbn";
             ItemIsbn.Size = new Size(71, 15);
             ItemIsbn.TabIndex = 7;
@@ -233,7 +240,7 @@
             // ItemAuthor
             // 
             ItemAuthor.AutoSize = true;
-            ItemAuthor.Location = new Point(81, 42);
+            ItemAuthor.Location = new Point(101, 48);
             ItemAuthor.Name = "ItemAuthor";
             ItemAuthor.Size = new Size(65, 15);
             ItemAuthor.TabIndex = 6;
@@ -242,7 +249,7 @@
             // ItemTitle
             // 
             ItemTitle.AutoSize = true;
-            ItemTitle.Location = new Point(81, 18);
+            ItemTitle.Location = new Point(101, 24);
             ItemTitle.Name = "ItemTitle";
             ItemTitle.Size = new Size(38, 15);
             ItemTitle.TabIndex = 5;
@@ -251,7 +258,7 @@
             // ItemTypeLabel
             // 
             ItemTypeLabel.AutoSize = true;
-            ItemTypeLabel.Location = new Point(41, 114);
+            ItemTypeLabel.Location = new Point(61, 120);
             ItemTypeLabel.Name = "ItemTypeLabel";
             ItemTypeLabel.Size = new Size(34, 15);
             ItemTypeLabel.TabIndex = 4;
@@ -260,7 +267,7 @@
             // ItemDescLabel
             // 
             ItemDescLabel.AutoSize = true;
-            ItemDescLabel.Location = new Point(5, 90);
+            ItemDescLabel.Location = new Point(25, 96);
             ItemDescLabel.Name = "ItemDescLabel";
             ItemDescLabel.Size = new Size(70, 15);
             ItemDescLabel.TabIndex = 3;
@@ -269,7 +276,7 @@
             // ItemISBNLabel
             // 
             ItemISBNLabel.AutoSize = true;
-            ItemISBNLabel.Location = new Point(40, 66);
+            ItemISBNLabel.Location = new Point(60, 72);
             ItemISBNLabel.Name = "ItemISBNLabel";
             ItemISBNLabel.Size = new Size(35, 15);
             ItemISBNLabel.TabIndex = 2;
@@ -278,7 +285,7 @@
             // ItemAuthorLabel
             // 
             ItemAuthorLabel.AutoSize = true;
-            ItemAuthorLabel.Location = new Point(28, 42);
+            ItemAuthorLabel.Location = new Point(48, 48);
             ItemAuthorLabel.Name = "ItemAuthorLabel";
             ItemAuthorLabel.Size = new Size(47, 15);
             ItemAuthorLabel.TabIndex = 1;
@@ -287,7 +294,7 @@
             // ItemTitleLabel
             // 
             ItemTitleLabel.AutoSize = true;
-            ItemTitleLabel.Location = new Point(43, 18);
+            ItemTitleLabel.Location = new Point(63, 24);
             ItemTitleLabel.Name = "ItemTitleLabel";
             ItemTitleLabel.Size = new Size(32, 15);
             ItemTitleLabel.TabIndex = 0;
@@ -295,7 +302,8 @@
             // 
             // ViewDetails
             // 
-            ViewDetails.Location = new Point(455, 348);
+            ViewDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ViewDetails.Location = new Point(456, 382);
             ViewDetails.Name = "ViewDetails";
             ViewDetails.Size = new Size(161, 37);
             ViewDetails.TabIndex = 13;
@@ -312,6 +320,7 @@
             // 
             // ViewUsersList
             // 
+            ViewUsersList.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ViewUsersList.Location = new Point(456, 146);
             ViewUsersList.Name = "ViewUsersList";
             ViewUsersList.Size = new Size(161, 37);
@@ -319,6 +328,26 @@
             ViewUsersList.Text = "Change User";
             ViewUsersList.UseVisualStyleBackColor = true;
             ViewUsersList.Click += ViewUsersList_Click;
+            // 
+            // ItemDueDateLabel
+            // 
+            ItemDueDateLabel.AutoSize = true;
+            ItemDueDateLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDateLabel.Location = new Point(6, 138);
+            ItemDueDateLabel.Name = "ItemDueDateLabel";
+            ItemDueDateLabel.Size = new Size(99, 25);
+            ItemDueDateLabel.TabIndex = 10;
+            ItemDueDateLabel.Text = "Due Date: ";
+            // 
+            // ItemDueDate
+            // 
+            ItemDueDate.AutoSize = true;
+            ItemDueDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDate.Location = new Point(101, 138);
+            ItemDueDate.Name = "ItemDueDate";
+            ItemDueDate.Size = new Size(76, 25);
+            ItemDueDate.TabIndex = 11;
+            ItemDueDate.Text = "14/7/22";
             // 
             // FormMain
             // 
@@ -376,5 +405,7 @@
         private Label ItemTitle;
         private Label ItemTypeLabel;
         private Button ViewUsersList;
+        private Label ItemDueDate;
+        private Label ItemDueDateLabel;
     }
 }

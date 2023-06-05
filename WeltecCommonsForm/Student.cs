@@ -9,6 +9,7 @@
             this.ID = Id;
             this.Dob = dob;
             this.Fines = fines;
+            this.BorrowedItems = new Dictionary<Catalogue, DateTime>();
         }
 
         public override int? GetBorrowLimit()

@@ -15,5 +15,6 @@
         public string Isbn { get => isbn; set => isbn = value; }
         public string Type { get => type; set => type = value; }
         public int Year { get => year; set => year = value; }
+
     }
 }
