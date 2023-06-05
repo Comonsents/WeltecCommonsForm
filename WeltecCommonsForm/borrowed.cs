@@ -2,19 +2,22 @@
 {
     internal class Borrowed : Catalogue
     {
-        Person person;
-        SortedDictionary<Catalogue, DateOnly> borrowedItem;
+        Person borrower;
+        SortedDictionary<Catalogue, DateTime> borrowedItems;
 
-        public Person Person { get => person; set => person = value; }
-        internal SortedDictionary<Catalogue, DateOnly> BorrowedItem { get => borrowedItem; set => borrowedItem = value; }
+        public Person Borrower { get => borrower; set => borrower = value; }
+        internal SortedDictionary<Catalogue, DateTime> BorrowedItems { get => borrowedItems; set => borrowedItems = value; }
 
-        public Borrowed(Person person, SortedDictionary<Catalogue, DateOnly> borrowedItem)
+        public Borrowed(Person borrower, SortedDictionary<Catalogue, DateTime> borrowedItems)
         {
-            Person = person;
-            BorrowedItem = borrowedItem;
+            Borrower = borrower;
+            BorrowedItems = borrowedItems;
         }
 
-        public Borrowed() { }
+        public Borrowed() 
+        { 
+            BorrowedItems = new SortedDictionary<Catalogue, DateTime>();
+        }
 
     }
 }
