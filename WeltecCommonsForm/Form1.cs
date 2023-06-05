@@ -5,7 +5,6 @@ namespace WeltecCommonsForm
 
         SortedDictionary<string, Catalogue> currrentUsersBorrowedItems = new SortedDictionary<string, Catalogue>();
         static string[] headers = new string[6];
-        Catalogue selectedItemInCatalogue = new Catalogue();
 
 
         public FormMain()
@@ -43,6 +42,7 @@ namespace WeltecCommonsForm
                     });
                 }
             }
+            //sets the default user to user 0
             Person foundUser = GlobalData.users[0];
             Program.selectedUser = GlobalData.users[0].FName;
             if (foundUser != null)
@@ -63,16 +63,34 @@ namespace WeltecCommonsForm
                 CurrentBorrowed.Sorted = true;
                 CurrentBorrowed.DataSource = new BindingSource(currrentUsersBorrowedItems, null);
                 CurrentBorrowed.ValueMember = "Key";
+                CurrentBorrowed.DisplayMember = "Key";
             }
             else
             {
+                CurrentBorrowed.DataSource = null;
+                CurrentBorrowed.Items.Clear();
                 ItemTitle.Text = "";
                 ItemAuthor.Text = "";
                 ItemDesc.Text = "";
                 ItemIsbn.Text = "";
                 ItemType.Text = "";
+                ItemDueDate.Text = "";
             }
 
+        }
+
+        private static Person GetSelectedUser()
+        {
+            int foundUser = GlobalData.users.FindIndex(users => users.FName == Program.selectedUser);
+            if (foundUser >= 0)
+            {
+                Person selectedUser = GlobalData.users[foundUser];
+                return selectedUser;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void CurrentBorrowed_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,6 +98,7 @@ namespace WeltecCommonsForm
             if (CurrentBorrowed.SelectedIndex >= 0)
             {
                 string selectedItem = CurrentBorrowed.SelectedValue.ToString();
+                Person selectedUser = GetSelectedUser();
                 if (currrentUsersBorrowedItems.ContainsKey(selectedItem))
                 {
                     Catalogue selectedItemInCatalogue = currrentUsersBorrowedItems[selectedItem];
@@ -88,7 +107,8 @@ namespace WeltecCommonsForm
                     ItemDesc.Text = selectedItemInCatalogue.Description;
                     ItemIsbn.Text = selectedItemInCatalogue.Isbn;
                     ItemType.Text = selectedItemInCatalogue.Type;
-
+                    DateTime dueDate = selectedUser.BorrowedItems[selectedItemInCatalogue];
+                    ItemDueDate.Text = dueDate.ToString("d");
                 }
 
 
@@ -117,51 +137,28 @@ namespace WeltecCommonsForm
         {
             if (Program.selectedItem != null)
             {
-                int foundUser = GlobalData.users.FindIndex(users => users.FName == Program.selectedUser);
-                Person selectedUser = GlobalData.users[foundUser];
+                Person selectedUser = GetSelectedUser();
                 if (!selectedUser.BorrowedItems.ContainsKey(GlobalData.itemCatalogue[Program.selectedItem]))
                 {
                     currrentUsersBorrowedItems.Add(Program.selectedItem, GlobalData.itemCatalogue[Program.selectedItem]);
-
-                    if (foundUser >= 0)
+                    ;
+                    if (GlobalData.itemCatalogue.ContainsKey(Program.selectedItem))
                     {
-                        ;
-                        if (GlobalData.itemCatalogue.ContainsKey(Program.selectedItem))
-                        {
 
-                            DateTime dueDate = DateTime.Now.AddDays(28);
-                            selectedUser.BorrowedItems.Add(GlobalData.itemCatalogue[Program.selectedItem], dueDate);
-                            //PrintUserItems(selectedUser);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error finding: " + Program.selectedItem, "Search Error"); ;
-                        }
-
-
+                        DateTime dueDate = DateTime.Now.AddDays(28);
+                        selectedUser.BorrowedItems.Add(GlobalData.itemCatalogue[Program.selectedItem], dueDate);
                     }
                     else
                     {
-                        MessageBox.Show("Error finding: " + Program.selectedUser, "Search Error");
+                        MessageBox.Show("Error finding: " + Program.selectedItem, "Search Error"); ;
                     }
+
+
                 }
                 Program.selectedItem = null;
                 RefreshForm();
             }
         }
-
-        /* TESTING CODE BEACUSE IT WASNT WORKING LOL
-        private void PrintUserItems(Person selectedPerson)
-        {
-            foreach (KeyValuePair<Catalogue, DateTime> item in selectedPerson.BorrowedItems)
-            {
-                Catalogue borrowedItem = item.Key;
-                DateTime dueDate = item.Value;
-                string logEntry = $"User: {selectedPerson.FName} {selectedPerson.LName}, Borrowed Item: {borrowedItem.Title}, Due Date: {dueDate}";
-                MessageBox.Show(logEntry);
-            }
-        }
-        */
         private void ViewUsersList_Click(object sender, EventArgs e)
         {
             UsersForm view = new UsersForm();
@@ -175,18 +172,17 @@ namespace WeltecCommonsForm
             {
 
 
-                Person foundUser = GlobalData.users.FirstOrDefault(users => users.FName == Program.selectedUser);
-                CurrentBorrowed.DataSource = null; 
-                CurrentBorrowed.Items.Clear();
+                Person foundUser = GetSelectedUser();
                 currrentUsersBorrowedItems.Clear();
 
                 foreach (KeyValuePair<Catalogue, DateTime> item in foundUser.BorrowedItems)
                 {
                     Catalogue borrowedItem = item.Key;
+                    string displayMember = item.Key.Title.ToString();
+
                     //DateTime dueDate = item.Value;
-                    currrentUsersBorrowedItems.Add(borrowedItem.Title, borrowedItem);
+                    currrentUsersBorrowedItems.Add(displayMember, borrowedItem);
                 }
-                //currrentUsersBorrowedItems.Clear();
                 if (foundUser != null)
                 {
                     PersonFName.Text = foundUser.FName;
