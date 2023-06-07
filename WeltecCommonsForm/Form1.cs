@@ -5,6 +5,7 @@ namespace WeltecCommonsForm
 
         SortedDictionary<string, Catalogue> currrentUsersBorrowedItems = new SortedDictionary<string, Catalogue>();
         static string[] headers = new string[6];
+        int? currentUsersBorrowLimit;
 
 
         public FormMain()
@@ -13,10 +14,10 @@ namespace WeltecCommonsForm
 
             InitializeComponent();
             //testUsers
-            GlobalData.users.Add(new Student("Ben", "Hodgson", 123456, DateTime.Now, 0));
-            GlobalData.users.Add(new Student("Lea", "Hung", 987654, DateTime.Now, 0));
-            GlobalData.users.Add(new Student("Bob", "Bobby", 112233, DateTime.Now, 0));
-            GlobalData.users.Add(new Staff("Lecturer", "Person", 999999, DateTime.Now, 0, "Mr"));
+            GlobalData.users.Add(new Student("Ben", "Hodgson", 123456, DateTime.Now, 0, Image.FromFile(@"../../../datafiles/profile_1.png")));
+            GlobalData.users.Add(new Student("Lea", "Hung", 987654, DateTime.Now, 0, Image.FromFile(@"../../../datafiles/profile_2.png")));
+            GlobalData.users.Add(new Student("Bob", "Bobby", 112233, DateTime.Now, 0, Image.FromFile(@"../../../datafiles/profile_3.png")));
+            GlobalData.users.Add(new Staff("Lecturer", "Person", 999999, DateTime.Now, 0, Image.FromFile(@"../../../datafiles/profile_4.png"), "Mr"));
 
             var path = @"../../../datafiles/records.csv";
             string[] lines = File.ReadAllLines(path);
@@ -42,26 +43,19 @@ namespace WeltecCommonsForm
                     });
                 }
             }
-            //sets the default user to user 0
-            Person foundUser = GlobalData.users[0];
-            Program.selectedUser = GlobalData.users[0].FName;
-            if (foundUser != null)
-            {
-                PersonFName.Text = foundUser.FName;
-                PersonLName.Text = foundUser.LName;
-                PersonId.Text = foundUser.ID.ToString();
-
-            }
-            RefreshForm();
+            UsersForm view = new UsersForm();
+            view.FormClosed += new FormClosedEventHandler(UpdateSelectedUser);
+            view.ShowDialog();
+            RefreshForm(currrentUsersBorrowedItems);
 
         }
 
-        private void RefreshForm()
+        private void RefreshForm(SortedDictionary<string, Catalogue> dict)
         {
-            if (currrentUsersBorrowedItems.Count > 0)
+            if (dict.Count > 0)
             {
                 CurrentBorrowed.Sorted = true;
-                CurrentBorrowed.DataSource = new BindingSource(currrentUsersBorrowedItems, null);
+                CurrentBorrowed.DataSource = new BindingSource(dict, null);
                 CurrentBorrowed.ValueMember = "Key";
                 CurrentBorrowed.DisplayMember = "Key";
             }
@@ -144,7 +138,7 @@ namespace WeltecCommonsForm
                     ;
                     if (GlobalData.itemCatalogue.ContainsKey(Program.selectedItem))
                     {
-
+                        //4 weeks from issue is the due date
                         DateTime dueDate = DateTime.Now.AddDays(28);
                         selectedUser.BorrowedItems.Add(GlobalData.itemCatalogue[Program.selectedItem], dueDate);
                     }
@@ -156,7 +150,7 @@ namespace WeltecCommonsForm
 
                 }
                 Program.selectedItem = null;
-                RefreshForm();
+                RefreshForm(currrentUsersBorrowedItems);
             }
         }
         private void ViewUsersList_Click(object sender, EventArgs e)
@@ -188,13 +182,52 @@ namespace WeltecCommonsForm
                     PersonFName.Text = foundUser.FName;
                     PersonLName.Text = foundUser.LName;
                     PersonId.Text = foundUser.ID.ToString();
-                    RefreshForm();
+                    PersonFines.Text = foundUser.GetFine().ToString();
+                    PersonPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                    PersonPicture.Image = foundUser.ProfilePicture;
+                    RefreshForm(currrentUsersBorrowedItems);
 
                 }
                 else
                 {
                     MessageBox.Show("Error finding: " + Program.selectedUser, "Search Error");
                 }
+            }
+        }
+
+        private void Search_TextChanged(object sender, EventArgs e)
+        {
+            if (Search.Text != "")
+            {
+                if (Search.Text.Length == 1)
+                {
+                    Search.Text = Search.Text.ToString().ToUpper();
+                    Search.Select(Search.Text.Length, 0);
+                }
+
+                Dictionary<string, Catalogue> query = currrentUsersBorrowedItems.Where(result => result.Key.Contains(Search.Text))
+                    .ToDictionary(result => result.Key, result => result.Value);
+                if (query.Count > 0)
+                {
+                    SortedDictionary<string, Catalogue> filtered = new SortedDictionary<string, Catalogue>(query);
+                    RefreshForm(filtered);
+                    if (filtered.Count == 1)
+                    {
+                        SearchResults.Text = $"{filtered.Count} match";
+                    }
+                    else
+                    {
+                        SearchResults.Text = $"{filtered.Count} matches";
+                    }
+                }
+                else
+                {
+                    SearchResults.Text = "No Results";
+                }
+            }
+            else
+            {
+                RefreshForm(currrentUsersBorrowedItems);
             }
         }
     }

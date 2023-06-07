@@ -4,7 +4,7 @@
     {
         string title;
         public string Title { get => title; set => title = value; }
-        public Staff(string fName, string lName, int Id, DateTime dob, float fines, string title)
+        public Staff(string fName, string lName, int Id, DateTime dob, float fines, Image profilePicture, string title)
         {
             this.FName = fName;
             this.LName = lName;
@@ -12,6 +12,7 @@
             this.Dob = dob;
             this.Fines = fines;
             this.Title = title;
+            this.ProfilePicture = profilePicture;
             this.BorrowedItems = new Dictionary<Catalogue, DateTime>();
         }
 

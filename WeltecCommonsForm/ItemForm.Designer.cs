@@ -94,7 +94,7 @@
             Controls.Add(itemCatalogueIssue);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ItemForm";
-            Text = "ItemForm";
+            Text = "Item Issue";
             ResumeLayout(false);
             PerformLayout();
         }

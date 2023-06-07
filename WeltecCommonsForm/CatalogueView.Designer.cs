@@ -45,6 +45,7 @@
             RemoveItem.TabIndex = 16;
             RemoveItem.Text = "Remove";
             RemoveItem.UseVisualStyleBackColor = true;
+            RemoveItem.Click += RemoveItem_Click;
             // 
             // AddItem
             // 
@@ -54,6 +55,7 @@
             AddItem.TabIndex = 15;
             AddItem.Text = "Add";
             AddItem.UseVisualStyleBackColor = true;
+            AddItem.Click += AddItem_Click;
             // 
             // SearchResults
             // 
@@ -70,6 +72,7 @@
             Search.Name = "Search";
             Search.Size = new Size(100, 23);
             Search.TabIndex = 13;
+            Search.TextChanged += Search_TextChanged;
             // 
             // itemCatalogue
             // 
@@ -89,6 +92,7 @@
             UpdateItem.TabIndex = 17;
             UpdateItem.Text = "Update";
             UpdateItem.UseVisualStyleBackColor = true;
+            UpdateItem.Click += UpdateItem_Click;
             // 
             // CatalogueView
             // 
@@ -103,7 +107,7 @@
             Controls.Add(itemCatalogue);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CatalogueView";
-            Text = "CatalogueView";
+            Text = "Item Catalogue";
             ResumeLayout(false);
             PerformLayout();
         }

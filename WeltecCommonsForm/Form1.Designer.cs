@@ -35,6 +35,8 @@
             PersonLNameLabel = new Label();
             PersonIdLabel = new Label();
             BorrowersInfoGroup = new GroupBox();
+            PersonFines = new Label();
+            PersonFinesLabel = new Label();
             PersonFName = new Label();
             PersonId = new Label();
             PersonLName = new Label();
@@ -56,11 +58,11 @@
             ItemAuthorLabel = new Label();
             ItemTitleLabel = new Label();
             ViewDetails = new Button();
-            pictureBox1 = new PictureBox();
+            PersonPicture = new PictureBox();
             ViewUsersList = new Button();
             BorrowersInfoGroup.SuspendLayout();
             ItemInfoGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PersonPicture).BeginInit();
             SuspendLayout();
             // 
             // CurrentBorrowed
@@ -69,14 +71,15 @@
             CurrentBorrowed.ItemHeight = 15;
             CurrentBorrowed.Location = new Point(12, 41);
             CurrentBorrowed.Name = "CurrentBorrowed";
-            CurrentBorrowed.Size = new Size(437, 454);
+            CurrentBorrowed.Size = new Size(195, 454);
             CurrentBorrowed.TabIndex = 0;
             CurrentBorrowed.SelectedIndexChanged += CurrentBorrowed_SelectedIndexChanged;
             // 
             // ViewUserDetails
             // 
+            ViewUserDetails.FlatAppearance.BorderColor = Color.White;
             ViewUserDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewUserDetails.Location = new Point(456, 103);
+            ViewUserDetails.Location = new Point(212, 118);
             ViewUserDetails.Name = "ViewUserDetails";
             ViewUserDetails.Size = new Size(161, 37);
             ViewUserDetails.TabIndex = 1;
@@ -112,18 +115,38 @@
             // 
             // BorrowersInfoGroup
             // 
+            BorrowersInfoGroup.Controls.Add(PersonFines);
+            BorrowersInfoGroup.Controls.Add(PersonFinesLabel);
             BorrowersInfoGroup.Controls.Add(PersonFName);
             BorrowersInfoGroup.Controls.Add(PersonId);
             BorrowersInfoGroup.Controls.Add(PersonLName);
             BorrowersInfoGroup.Controls.Add(PersonFNameLabel);
             BorrowersInfoGroup.Controls.Add(PersonIdLabel);
             BorrowersInfoGroup.Controls.Add(PersonLNameLabel);
-            BorrowersInfoGroup.Location = new Point(455, 12);
+            BorrowersInfoGroup.Location = new Point(212, 16);
             BorrowersInfoGroup.Name = "BorrowersInfoGroup";
-            BorrowersInfoGroup.Size = new Size(162, 85);
+            BorrowersInfoGroup.Size = new Size(162, 96);
             BorrowersInfoGroup.TabIndex = 7;
             BorrowersInfoGroup.TabStop = false;
             BorrowersInfoGroup.Text = "Borrows Info";
+            // 
+            // PersonFines
+            // 
+            PersonFines.AutoSize = true;
+            PersonFines.Location = new Point(78, 68);
+            PersonFines.Name = "PersonFines";
+            PersonFines.Size = new Size(19, 15);
+            PersonFines.TabIndex = 11;
+            PersonFines.Text = "$0";
+            // 
+            // PersonFinesLabel
+            // 
+            PersonFinesLabel.AutoSize = true;
+            PersonFinesLabel.Location = new Point(35, 68);
+            PersonFinesLabel.Name = "PersonFinesLabel";
+            PersonFinesLabel.Size = new Size(37, 15);
+            PersonFinesLabel.TabIndex = 10;
+            PersonFinesLabel.Text = "Fines:";
             // 
             // PersonFName
             // 
@@ -158,6 +181,7 @@
             Search.Name = "Search";
             Search.Size = new Size(100, 23);
             Search.TabIndex = 8;
+            Search.TextChanged += Search_TextChanged;
             // 
             // SearchResults
             // 
@@ -204,7 +228,7 @@
             ItemInfoGroup.Controls.Add(ItemISBNLabel);
             ItemInfoGroup.Controls.Add(ItemAuthorLabel);
             ItemInfoGroup.Controls.Add(ItemTitleLabel);
-            ItemInfoGroup.Location = new Point(456, 196);
+            ItemInfoGroup.Location = new Point(213, 236);
             ItemInfoGroup.Name = "ItemInfoGroup";
             ItemInfoGroup.Size = new Size(297, 180);
             ItemInfoGroup.TabIndex = 12;
@@ -214,20 +238,20 @@
             // ItemDueDate
             // 
             ItemDueDate.AutoSize = true;
-            ItemDueDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ItemDueDate.Location = new Point(101, 138);
+            ItemDueDate.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDate.Location = new Point(101, 141);
             ItemDueDate.Name = "ItemDueDate";
-            ItemDueDate.Size = new Size(76, 25);
+            ItemDueDate.Size = new Size(47, 15);
             ItemDueDate.TabIndex = 11;
             ItemDueDate.Text = "14/7/22";
             // 
             // ItemDueDateLabel
             // 
             ItemDueDateLabel.AutoSize = true;
-            ItemDueDateLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ItemDueDateLabel.Location = new Point(6, 138);
+            ItemDueDateLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDateLabel.Location = new Point(34, 141);
             ItemDueDateLabel.Name = "ItemDueDateLabel";
-            ItemDueDateLabel.Size = new Size(99, 25);
+            ItemDueDateLabel.Size = new Size(61, 15);
             ItemDueDateLabel.TabIndex = 10;
             ItemDueDateLabel.Text = "Due Date: ";
             // 
@@ -324,29 +348,29 @@
             // ViewDetails
             // 
             ViewDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewDetails.Location = new Point(456, 382);
+            ViewDetails.Location = new Point(212, 422);
             ViewDetails.Name = "ViewDetails";
             ViewDetails.Size = new Size(161, 37);
             ViewDetails.TabIndex = 13;
             ViewDetails.Text = "View Details";
             ViewDetails.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // PersonPicture
             // 
-            pictureBox1.Location = new Point(623, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(130, 120);
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
+            PersonPicture.Location = new Point(380, 24);
+            PersonPicture.Name = "PersonPicture";
+            PersonPicture.Size = new Size(130, 120);
+            PersonPicture.TabIndex = 14;
+            PersonPicture.TabStop = false;
             // 
             // ViewUsersList
             // 
             ViewUsersList.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewUsersList.Location = new Point(456, 146);
+            ViewUsersList.Location = new Point(212, 161);
             ViewUsersList.Name = "ViewUsersList";
             ViewUsersList.Size = new Size(161, 37);
             ViewUsersList.TabIndex = 15;
-            ViewUsersList.Text = "Change User";
+            ViewUsersList.Text = "User Login";
             ViewUsersList.UseVisualStyleBackColor = true;
             ViewUsersList.Click += ViewUsersList_Click;
             // 
@@ -354,9 +378,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(765, 546);
+            BackColor = Color.Honeydew;
+            ClientSize = new Size(526, 546);
             Controls.Add(ViewUsersList);
-            Controls.Add(pictureBox1);
+            Controls.Add(PersonPicture);
             Controls.Add(ViewDetails);
             Controls.Add(ItemInfoGroup);
             Controls.Add(ViewCatalogue);
@@ -373,7 +398,7 @@
             BorrowersInfoGroup.PerformLayout();
             ItemInfoGroup.ResumeLayout(false);
             ItemInfoGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PersonPicture).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -399,7 +424,7 @@
         private Label ItemISBNLabel;
         private Label ItemAuthorLabel;
         private Label ItemTitleLabel;
-        private PictureBox pictureBox1;
+        private PictureBox PersonPicture;
         private Label ItemType;
         private Label ItemDesc;
         private Label ItemIsbn;
@@ -409,5 +434,7 @@
         private Button ViewUsersList;
         private Label ItemDueDate;
         private Label ItemDueDateLabel;
+        private Label PersonFines;
+        private Label PersonFinesLabel;
     }
 }
