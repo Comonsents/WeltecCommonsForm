@@ -75,7 +75,7 @@
             {
                 GlobalData.itemCatalogue.Remove(itemCatalogue.SelectedValue.ToString());
                 RefreshForm(catalogue);
-                
+
             }
 
         }

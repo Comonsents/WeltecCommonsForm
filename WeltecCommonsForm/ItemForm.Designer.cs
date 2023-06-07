@@ -86,6 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(641, 546);
             Controls.Add(RemoveItem);
             Controls.Add(AddItem);
@@ -94,6 +95,7 @@
             Controls.Add(itemCatalogueIssue);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ItemForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Item Issue";
             ResumeLayout(false);
             PerformLayout();

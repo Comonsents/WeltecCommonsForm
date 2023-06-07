@@ -165,6 +165,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(251, 283);
             Controls.Add(btnCatalogueCancel);
             Controls.Add(btnCatalogueAdd);
@@ -182,6 +183,7 @@
             Controls.Add(CatalogueTitle);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CatalogueItemForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "CatalogueItemForm";
             ResumeLayout(false);
             PerformLayout();

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             CurrentBorrowed = new ListBox();
-            ViewUserDetails = new Button();
             PersonFNameLabel = new Label();
             PersonLNameLabel = new Label();
             PersonIdLabel = new Label();
@@ -71,20 +70,9 @@
             CurrentBorrowed.ItemHeight = 15;
             CurrentBorrowed.Location = new Point(12, 41);
             CurrentBorrowed.Name = "CurrentBorrowed";
-            CurrentBorrowed.Size = new Size(195, 454);
+            CurrentBorrowed.Size = new Size(195, 349);
             CurrentBorrowed.TabIndex = 0;
             CurrentBorrowed.SelectedIndexChanged += CurrentBorrowed_SelectedIndexChanged;
-            // 
-            // ViewUserDetails
-            // 
-            ViewUserDetails.FlatAppearance.BorderColor = Color.White;
-            ViewUserDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewUserDetails.Location = new Point(212, 118);
-            ViewUserDetails.Name = "ViewUserDetails";
-            ViewUserDetails.Size = new Size(161, 37);
-            ViewUserDetails.TabIndex = 1;
-            ViewUserDetails.Text = "View User";
-            ViewUserDetails.UseVisualStyleBackColor = true;
             // 
             // PersonFNameLabel
             // 
@@ -195,7 +183,7 @@
             // IssueItem
             // 
             IssueItem.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            IssueItem.Location = new Point(12, 501);
+            IssueItem.Location = new Point(12, 396);
             IssueItem.Name = "IssueItem";
             IssueItem.Size = new Size(75, 35);
             IssueItem.TabIndex = 10;
@@ -206,7 +194,7 @@
             // ViewCatalogue
             // 
             ViewCatalogue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewCatalogue.Location = new Point(93, 501);
+            ViewCatalogue.Location = new Point(93, 396);
             ViewCatalogue.Name = "ViewCatalogue";
             ViewCatalogue.Size = new Size(114, 35);
             ViewCatalogue.TabIndex = 11;
@@ -228,7 +216,7 @@
             ItemInfoGroup.Controls.Add(ItemISBNLabel);
             ItemInfoGroup.Controls.Add(ItemAuthorLabel);
             ItemInfoGroup.Controls.Add(ItemTitleLabel);
-            ItemInfoGroup.Location = new Point(213, 236);
+            ItemInfoGroup.Location = new Point(212, 161);
             ItemInfoGroup.Name = "ItemInfoGroup";
             ItemInfoGroup.Size = new Size(297, 180);
             ItemInfoGroup.TabIndex = 12;
@@ -348,7 +336,7 @@
             // ViewDetails
             // 
             ViewDetails.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewDetails.Location = new Point(212, 422);
+            ViewDetails.Location = new Point(212, 347);
             ViewDetails.Name = "ViewDetails";
             ViewDetails.Size = new Size(161, 37);
             ViewDetails.TabIndex = 13;
@@ -366,7 +354,7 @@
             // ViewUsersList
             // 
             ViewUsersList.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ViewUsersList.Location = new Point(212, 161);
+            ViewUsersList.Location = new Point(212, 118);
             ViewUsersList.Name = "ViewUsersList";
             ViewUsersList.Size = new Size(161, 37);
             ViewUsersList.TabIndex = 15;
@@ -379,7 +367,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
-            ClientSize = new Size(526, 546);
+            ClientSize = new Size(526, 440);
             Controls.Add(ViewUsersList);
             Controls.Add(PersonPicture);
             Controls.Add(ViewDetails);
@@ -389,10 +377,10 @@
             Controls.Add(SearchResults);
             Controls.Add(Search);
             Controls.Add(BorrowersInfoGroup);
-            Controls.Add(ViewUserDetails);
             Controls.Add(CurrentBorrowed);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Library Catalogue";
             BorrowersInfoGroup.ResumeLayout(false);
             BorrowersInfoGroup.PerformLayout();
@@ -406,7 +394,6 @@
         #endregion
 
         private ListBox CurrentBorrowed;
-        private Button ViewUserDetails;
         private Label PersonFNameLabel;
         private Label PersonLNameLabel;
         private Label PersonIdLabel;

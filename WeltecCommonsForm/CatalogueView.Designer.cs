@@ -98,6 +98,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(721, 543);
             Controls.Add(UpdateItem);
             Controls.Add(RemoveItem);
@@ -107,6 +108,7 @@
             Controls.Add(itemCatalogue);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CatalogueView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Item Catalogue";
             ResumeLayout(false);
             PerformLayout();
