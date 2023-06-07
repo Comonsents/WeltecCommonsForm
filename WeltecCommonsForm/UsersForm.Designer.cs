@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersForm));
             UsersListBox = new ListBox();
             UserListSearch = new TextBox();
             SelectUserFromList = new Button();
@@ -69,6 +70,7 @@
             Controls.Add(UserListSearch);
             Controls.Add(UsersListBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UsersForm";
             Text = "UsersForm";
             ResumeLayout(false);

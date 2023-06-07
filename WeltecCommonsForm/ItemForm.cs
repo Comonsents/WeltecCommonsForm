@@ -33,7 +33,7 @@ namespace WeltecCommonsForm
 
         private void itemCatalogueIssue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void RemoveItem_Click(object sender, EventArgs e)

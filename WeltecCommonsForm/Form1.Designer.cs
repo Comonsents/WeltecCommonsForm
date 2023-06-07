@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             CurrentBorrowed = new ListBox();
             ViewUserDetails = new Button();
             PersonFNameLabel = new Label();
@@ -42,6 +43,8 @@
             IssueItem = new Button();
             ViewCatalogue = new Button();
             ItemInfoGroup = new GroupBox();
+            ItemDueDate = new Label();
+            ItemDueDateLabel = new Label();
             ItemType = new Label();
             ItemDesc = new Label();
             ItemIsbn = new Label();
@@ -55,8 +58,6 @@
             ViewDetails = new Button();
             pictureBox1 = new PictureBox();
             ViewUsersList = new Button();
-            ItemDueDateLabel = new Label();
-            ItemDueDate = new Label();
             BorrowersInfoGroup.SuspendLayout();
             ItemInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -210,6 +211,26 @@
             ItemInfoGroup.TabStop = false;
             ItemInfoGroup.Text = "Item Info";
             // 
+            // ItemDueDate
+            // 
+            ItemDueDate.AutoSize = true;
+            ItemDueDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDate.Location = new Point(101, 138);
+            ItemDueDate.Name = "ItemDueDate";
+            ItemDueDate.Size = new Size(76, 25);
+            ItemDueDate.TabIndex = 11;
+            ItemDueDate.Text = "14/7/22";
+            // 
+            // ItemDueDateLabel
+            // 
+            ItemDueDateLabel.AutoSize = true;
+            ItemDueDateLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemDueDateLabel.Location = new Point(6, 138);
+            ItemDueDateLabel.Name = "ItemDueDateLabel";
+            ItemDueDateLabel.Size = new Size(99, 25);
+            ItemDueDateLabel.TabIndex = 10;
+            ItemDueDateLabel.Text = "Due Date: ";
+            // 
             // ItemType
             // 
             ItemType.AutoSize = true;
@@ -329,26 +350,6 @@
             ViewUsersList.UseVisualStyleBackColor = true;
             ViewUsersList.Click += ViewUsersList_Click;
             // 
-            // ItemDueDateLabel
-            // 
-            ItemDueDateLabel.AutoSize = true;
-            ItemDueDateLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ItemDueDateLabel.Location = new Point(6, 138);
-            ItemDueDateLabel.Name = "ItemDueDateLabel";
-            ItemDueDateLabel.Size = new Size(99, 25);
-            ItemDueDateLabel.TabIndex = 10;
-            ItemDueDateLabel.Text = "Due Date: ";
-            // 
-            // ItemDueDate
-            // 
-            ItemDueDate.AutoSize = true;
-            ItemDueDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ItemDueDate.Location = new Point(101, 138);
-            ItemDueDate.Name = "ItemDueDate";
-            ItemDueDate.Size = new Size(76, 25);
-            ItemDueDate.TabIndex = 11;
-            ItemDueDate.Text = "14/7/22";
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -365,6 +366,7 @@
             Controls.Add(BorrowersInfoGroup);
             Controls.Add(ViewUserDetails);
             Controls.Add(CurrentBorrowed);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormMain";
             Text = "Library Catalogue";
             BorrowersInfoGroup.ResumeLayout(false);

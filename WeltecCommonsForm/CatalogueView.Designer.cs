@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogueView));
             RemoveItem = new Button();
             AddItem = new Button();
             SearchResults = new Label();
@@ -100,6 +101,7 @@
             Controls.Add(SearchResults);
             Controls.Add(Search);
             Controls.Add(itemCatalogue);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CatalogueView";
             Text = "CatalogueView";
             ResumeLayout(false);

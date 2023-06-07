@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemForm));
             RemoveItem = new Button();
             AddItem = new Button();
             SearchResults = new Label();
@@ -91,6 +92,7 @@
             Controls.Add(SearchResults);
             Controls.Add(Search);
             Controls.Add(itemCatalogueIssue);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ItemForm";
             Text = "ItemForm";
             ResumeLayout(false);
